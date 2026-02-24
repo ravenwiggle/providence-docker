@@ -16,7 +16,6 @@ mysql --host=$DB_HOST --user=root --password=$DB_ROOT_PASSWORD -e "GRANT ALL PRI
 echo "Creating necessary directories and owning them to www-data... $CA_PROVIDENCE_DIR"
 cd $CA_PROVIDENCE_DIR/media && mkdir -p collectiveaccess
 cd $CA_PROVIDENCE_DIR/media/collectiveaccess && mkdir -p tilepics images
-cd $CA_PAWTUCKET_DIR && chown www-data:www-data . -R && chmod -R u+rX .
 cd $CA_PROVIDENCE_DIR && chown www-data:www-data . -R && chmod -R u+rX .
 
 if [[ ! "$(ls -A /$CA_PROVIDENCE_DIR/app/conf/)" ]]; then
@@ -42,9 +41,6 @@ sweep() {
 }
 cd $CA_PROVIDENCE_DIR
 ca='pro'
-sweep $ca
-cd $CA_PAWTUCKET_DIR
-ca='paw'
 sweep $ca
 
 echo "Running image..."

@@ -1,10 +1,9 @@
-# docker-compose-pawtucket2
-CollectiveAccess - providence + pawtucket2 docker compose ready
+# providence-compose
+CollectiveAccess - providence docker compose ready
 
 ## About
 
-- Contains both Providence and Pawtucket2
-- Pawtucket is accessed by `http://localhost:8080/`
+- Contains Providence 
 - Providence is accessed by `http://localhost:8080/providence`
 
 ## Image build

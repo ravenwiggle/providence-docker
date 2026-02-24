@@ -10,8 +10,6 @@ ENV APACHE_LOG_DIR      /var/log/apache2
 
 ENV CA_PROVIDENCE_VERSION=1.7.8
 ENV CA_PROVIDENCE_DIR=/var/www/providence
-ENV CA_PAWTUCKET_VERSION=1.7.8
-ENV CA_PAWTUCKET_DIR=/var/www
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -42,13 +40,9 @@ RUN curl -SsL https://github.com/collectiveaccess/providence/archive/$CA_PROVIDE
 RUN mv /var/www/providence-$CA_PROVIDENCE_VERSION /var/www/providence
 RUN cd $CA_PROVIDENCE_DIR && cp setup.php-dist setup.php
 
-RUN curl -SsL https://github.com/collectiveaccess/pawtucket2/archive/$CA_PAWTUCKET_VERSION.tar.gz | tar -C /var/www/ -xzf -
-RUN mv $CA_PAWTUCKET_DIR/pawtucket2-$CA_PAWTUCKET_VERSION/* /var/www
-RUN cd $CA_PAWTUCKET_DIR && cp setup.php-dist setup.php
-
 RUN sed -i "s@DocumentRoot \/var\/www\/html@DocumentRoot \/var\/www@g" /etc/apache2/sites-available/000-default.conf
 RUN rm -rf /var/www/html
-RUN ln -s /$CA_PROVIDENCE_DIR/media /$CA_PAWTUCKET_DIR/media
+RUN ln -s /$CA_PROVIDENCE_DIR/media 
 
 RUN chown -R www-data:www-data /var/www
 
