@@ -8,7 +8,7 @@ ENV APACHE_RUN_DIR      /var/run/apache2
 ENV APACHE_LOCK_DIR     /var/lock/apache2
 ENV APACHE_LOG_DIR      /var/log/apache2
 
-ENV CA_PROVIDENCE_VERSION=1.7.8
+ENV CA_PROVIDENCE_VERSION=2.0.11
 ENV CA_PROVIDENCE_DIR=/var/www/providence
 
 ENV DEBIAN_FRONTEND=noninteractive
